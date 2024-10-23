@@ -1,0 +1,8 @@
+llama-index
+fastapi
+Flask
+python-dotenv
+pinecone
+openai
+llama-index-llms-ollama
+together
