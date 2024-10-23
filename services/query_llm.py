@@ -1,10 +1,11 @@
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+from together import Together
 
 load_dotenv()
 
-client = OpenAI (api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI (api_key=os.getenv("TOGETHER_API_KEY"))
 
 def query(category: str, input: str):
 
@@ -22,7 +23,8 @@ def query(category: str, input: str):
             messages=[
                 {"role": "system", "content": "You are an expert software engineer specializing in code analysis. Provide actionable advice."},
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            max_tokens=
         )
 
     except Exception as e:
