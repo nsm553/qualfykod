@@ -2,8 +2,6 @@ import ast
 
 issues = []
 
-def detect_bugs(path):
-    return
 
 def check_syntax(path):
     """ Check Code for Code Analysis, Code Transformation, tooling and Automation """

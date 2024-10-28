@@ -7,14 +7,14 @@ llm = Ollama(
 )
 
 # Single query
-# resp = llm.complete("Who is Paul Graham")
+resp = llm.complete("Who is Paul Graham")
 
 # Call Chat with list of messages
-# messages = [
-#     ChatMessage(role="system", content="You are a pirate with a colorful personality"),
-#     ChatMessage(role="user", content="What is your name")
-# ]
-# resp = llm.chat(messages)
+messages = [
+    ChatMessage(role="system", content="You are a pirate with a colorful personality"),
+    ChatMessage(role="user", content="What is your name")
+]
+resp = llm.chat(messages)
 
 # Stream complete
 resp = llm.stream_complete ("Who is Paul Graham")

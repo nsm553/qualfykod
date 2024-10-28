@@ -1,13 +1,18 @@
 import os
+import uvicorn
 from fastapi import FastAPI, HTTPException
-from services import detect_bugs
+from detect_bugs import check_syntax
 
 app = FastAPI()
 
-SRC_DIR = "src_dir"
+SRC_DIR = "data"
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
 
 @app.get("/analyze/bugs")
-def find_bugs():
+async def find_bugs():
     """ detect bugs """
     files = os.listdir(SRC_DIR)
     if not files:
@@ -16,5 +21,9 @@ def find_bugs():
     results = []
     for file in files:
         path = os.path.join(SRC_DIR, file)
-        result = detect_bugs.check_syntax(path)
+        result = check_syntax(path)
+        print ("result: " + result)
 
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
