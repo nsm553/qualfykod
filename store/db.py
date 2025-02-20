@@ -30,8 +30,7 @@ def get_db():
         pc.Index(INDEX_NAME)
 
 def query_db(query_vector):
-    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
-    indx = pc.Index(INDEX_NAME)
+    pc = get_db()
 
     results = indx.query(
         namespace="kod-space",
